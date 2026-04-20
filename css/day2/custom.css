@@ -1,0 +1,59 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+DK+Uloopet+Guides&display=swap" rel="stylesheet">
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+
+}
+header{
+    background-color: cadetblue;
+    padding: 30px 30px;
+    
+}
+h2{
+    font-size: 3em;
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+}
+
+.welcome-note{
+    text-align: center;
+    color: white;
+    text-align: center;
+}
+div{
+    width: 90vw;
+    background-color: bisque;
+    height: 150px;
+    margin: 20px 0 0 40px;
+
+}
+h3{
+    font-size: 30px;
+    
+}
+#para{
+    margin-top: 10px;
+    margin: 20px 0 0 40px;
+
+}
+.skills{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+}
+article{
+    text-align: center;
+}
+footer{
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+}
