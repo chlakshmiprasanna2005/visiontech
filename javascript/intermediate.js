@@ -138,3 +138,70 @@
 // let randomNum=[1,23,33,111,22,34,445,55,22,556];
 // console.log(randomNum.sort((a,b)=>b-a));
 
+//chapter-16
+//Conditional statements(4)
+
+//1.if
+// let age=20;
+// if(age>18){
+//     console.log("you can vote");   
+// }
+
+//2.if else
+// let age=10;
+// if(age>18){
+//     console.log("you can vote");   
+// }
+// else{
+//     console.log("you cannot vote");
+// }
+
+
+//3.if else if
+// let age=30;
+// if(age<18){
+//     console.log("you cannot vote");   
+// }
+// else if(age=18){
+//     console.log("you cannot vote");
+// }
+// else{
+//     console.log("you can vote");
+// }
+
+//4.switch case
+// let day="friday"
+// switch(day){
+//     case "monday":
+//         console.log("work mood");
+//     break;
+//     case "tuesday":
+//         console.log("workingg");
+//     break;
+//     case "wednesday":
+//         console.log("waiting for friday");
+//     break;
+//     case "thursday":
+//         console.log("1 more day");
+//     break;
+//     case "friday":
+//         console.log("yay! its friday");
+//     break;
+//     default:
+//         console.log("mention weekdays only");
+//     break;
+// }
+    
+ //ternary operator
+//  let age=28;
+//  let result= age>=18? "yes you are an adult" :"you  are a teen " 
+//  console.log(result);
+    
+    
+// control flow or loops
+// loops are used to repeate a block of code automatically untillthe condition is true
+
+//1.for loop
+for(let index=0; index<11;index++){
+    console.log(index);
+}   
