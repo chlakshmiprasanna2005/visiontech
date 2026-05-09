@@ -59,7 +59,7 @@
 
 //chapter 16
 
-//array of objects - JSON data
+//array of objects - JSON data- collection of values in array- key value pair
 //array[]   object{}
 
 // let users=[
@@ -202,6 +202,81 @@
 // loops are used to repeate a block of code automatically untillthe condition is true
 
 //1.for loop
-for(let index=0; index<11;index++){
-    console.log(index);
-}   
+// for(let index=0; index<11;index++){
+//     console.log(index);
+// }   
+
+//2.while loop
+//3.do while
+
+// chapter-18
+
+//2.while
+// let i=1;
+// while(i<100){
+//     console.log(i);
+//     i++;//incrementing or decrementing is very important in while loop else it will hang yor system   
+// }
+
+//3. do while
+// let num=10;
+// do{
+//     console.log("hello from do whileloop");   
+// }
+// while(num<5);
+
+//forof and forin ***interview question**
+
+//for in loop- used to loop over keys(index/property names ), it can be used with objects and array
+//we can use it when there are objects
+
+// const student={
+//     //key :value
+//     name:"rahul",
+//     age:22,
+//     course:"MERN",
+// };
+// for(let key in student){
+//     console.log(key);
+//     console.log(student[key]);
+//     console.log(key+":"+student[key]);
+// }
+
+// let fruits=["apple","banana","grapes"];
+// for(let index in fruits){
+//     console.log(index);
+//     console.log(fruits[index]);
+    
+// }
+
+//everything in javascript is an object
+//for of loop is used to loop over "values" directly.. Arrays and string
+//can use it when there are arrays and strings
+
+// const price=[100,200,300,334,550]
+// for(const p of price){
+//     console.log("price is "+p);
+// }
+
+// let my_name="LAKSHMI PRASANNA";
+// for(let char of my_name){
+//     console.log(char);
+// }
+
+//for each- use it when there is an array
+// const users=["prrasanna","janu","bhagi","soyi"];
+// users.forEach((user)=>{
+//     console.log("session started "+user);
+// });
+
+const orders=[
+    {id:1, item:"shirt",price:"300"},
+    {id:2, item:"short",price:"500"},
+    {id:3, item:"googles",price:"2000"}
+
+];
+orders.forEach((order)=>{
+    //`` - backticks (string interpolation)
+    console.log(`order ${order.id}:${order.item} cost${order.price}`);
+    
+})
