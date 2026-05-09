@@ -275,8 +275,15 @@ const orders=[
     {id:3, item:"googles",price:"2000"}
 
 ];
-orders.forEach((order)=>{
-    //`` - backticks (string interpolation)
-    console.log(`order ${order.id}:${order.item} cost${order.price}`);
+// orders.forEach((order)=>{
+//     //`` - backticks (string interpolation)
+//     console.log(`order ${order.id}:${order.item} cost${order.price}`);
     
-})
+// })
+
+// orders.forEach((order)=>{
+//     console.log(order.id + order.price);
+//     console.log(`${order.id} and ${order.item}`);   
+// });
+
+
