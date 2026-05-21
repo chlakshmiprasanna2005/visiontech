@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap");
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  --bg: #0d0d0f;
+  --surface: #141417;
+  --surface-2: #1c1c21;
+  --border: #2a2a32;
+  --accent: #c8f135;
+  --accent-2: #6ee7b7;
+  --muted: #55555e;
+  --text: #e8e8ed;
+  --text-dim: #8888a0;
+  --danger: #ff5c72;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Mono", monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 80px;
+
+  /* subtle noise texture */
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(200, 241, 53, 0.07) 0%,
+      transparent 60%
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ── App Shell ──────────────────────────────────────────────────── */
+.app {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.header h1::after {
+  content: ".";
+  color: var(--accent);
+}
+
+.header span {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 14px;
+}
+
+/* ── Add Form ───────────────────────────────────────────────────── */
+.add-form {
+  display: flex;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 8px 8px 18px;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.add-form:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(200, 241, 53, 0.12);
+}
+
+.add-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: "DM Mono", monospace;
+  font-size: 0.9rem;
+  caret-color: var(--accent);
+}
+
+.add-form input::placeholder {
+  color: var(--muted);
+}
+
+.add-form button {
+  background: var(--accent);
+  color: #0d0d0f;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    opacity var(--transition);
+  white-space: nowrap;
+}
+
+.add-form button:hover {
+  background: #d8ff40;
+  transform: translateY(-1px);
+}
+.add-form button:active {
+  transform: translateY(0);
+  opacity: 0.85;
+}
+
+/* ── Todo List ──────────────────────────────────────────────────── */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-list > p {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── Todo Item ──────────────────────────────────────────────────── */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+  animation: slideIn 0.22s ease both;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item:hover {
+  border-color: var(--border);
+  background: var(--surface-2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.todo-item.editing {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(110, 231, 183, 0.1);
+}
+
+.todo-item.done {
+  opacity: 0.5;
+}
+
+.todo-item.done .todo-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Index number */
+.todo-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  min-width: 26px;
+  user-select: none;
+}
+
+/* Custom Checkbox */
+.todo-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.todo-item input[type="checkbox"]:hover {
+  border-color: var(--accent);
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.todo-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L4.5 8.5L11 1.5' stroke='%230d0d0f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center/60% no-repeat;
+}
+
+/* Title */
+.todo-title {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Edit input */
+.edit-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--accent-2);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  color: var(--text);
+  font-family: "DM Mono", monospace;
+  font-size: 0.88rem;
+  outline: none;
+  caret-color: var(--accent-2);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.actions button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition),
+    transform var(--transition);
+  white-space: nowrap;
+}
+
+/* Save button */
+.actions button:first-child:hover {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+  background: rgba(110, 231, 183, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Edit button */
+.todo-item:not(.editing) .actions button:first-child:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(200, 241, 53, 0.08);
+}
+
+/* Delete button */
+.actions button:last-child:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: rgba(255, 92, 114, 0.08);
+  transform: translateY(-1px);
+}
+
+.actions button:active {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* ── Selection ──────────────────────────────────────────────────── */
+::selection {
+  background: rgba(200, 241, 53, 0.25);
+  color: var(--text);
+}
