@@ -1,8 +1,8 @@
 // common js module
 // const express = require("express")
 
+//es module
 import express, { request, response } from 'express';
-
 const server = express()
 
 // HTTP methods - get, post, push, delete
